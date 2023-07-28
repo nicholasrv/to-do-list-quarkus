@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <title>To-Do List</title>
+</h:head>
+<h:body>
+    <h1>To-Do List</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Due Date</th>
+            <th>Done</th>
+        </tr>
+        <ui:repeat value="#{toDoListBean.tasks}" var="task">
+            <tr>
+                <td>#{task.id}</td>
+                <td>#{task.title}</td>
+                <td>#{task.description}</td>
+                <td>#{task.dueDate}</td>
+                <td>#{task.done}</td>
+            </tr>
+        </ui:repeat>
+    </table>
+
+    <!-- Add a form to create new tasks -->
+    <h2>Create New Task</h2>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="title" value="Title:" />
+            <h:inputText id="title" value="#{newTask.title}" required="true" />
+
+            <h:outputLabel for="description" value="Description:" />
+            <h:inputTextarea id="description" value="#{newTask.description}" required="true" />
+
+            <h:outputLabel for="dueDate" value="Due Date:" />
+            <h:inputText id="dueDate" value="#{newTask.dueDate}" required="true" />
+
+            <h:outputLabel for="done" value="Done:" />
+            <h:selectBooleanCheckbox id="done" value="#{newTask.done}" />
+        </h:panelGrid>
+        <h:commandButton value="Create Task" actionExpression="#{toDoListBean.createTask}" />
+    </h:form>
+</h:body>
+</html>
