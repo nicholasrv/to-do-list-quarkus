@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class TasksPageTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void testTasksEndpoint() {
         given()
           .when().get("/tasks")
           .then()
