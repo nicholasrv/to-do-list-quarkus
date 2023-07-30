@@ -32,16 +32,16 @@
     <h:form>
         <h:panelGrid columns="2">
             <h:outputLabel for="title" value="Title:" />
-            <h:inputText id="title" value="#{newTask.title}" required="true" />
+            <h:inputText id="title" value="#{toDoListBean.newTask.title}" required="true" />
 
             <h:outputLabel for="description" value="Description:" />
-            <h:inputTextarea id="description" value="#{newTask.description}" required="true" />
+            <h:inputTextarea id="description" value="#{toDoListBean.newTask.description}" required="true" />
 
             <h:outputLabel for="dueDate" value="Due Date:" />
-            <h:inputText id="dueDate" value="#{newTask.dueDate}" required="true" />
+            <h:inputText id="dueDate" value="#{toDoListBean.newTask.dueDate}" required="true" />
 
             <h:outputLabel for="done" value="Done:" />
-            <h:selectBooleanCheckbox id="done" value="#{newTask.done}" />
+            <h:selectBooleanCheckbox id="done" value="#{toDoListBean.newTask.done}" />
         </h:panelGrid>
         <h:commandButton value="Create Task" actionExpression="#{toDoListBean.createTask}" />
     </h:form>
